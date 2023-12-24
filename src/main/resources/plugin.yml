@@ -1,0 +1,7 @@
+name: ReefRealmSkyPVP
+version: '${project.version}'
+main: net.reefrealm.reefrealmskypvp.ReefRealmSkyPVP
+api-version: '1.20'
+commands:
+  setspawn:
+    description: Sets the spawn point for the world

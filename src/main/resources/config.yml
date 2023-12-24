@@ -1,0 +1,13 @@
+database:
+  host: localhost
+  port: 3306
+  database: reefcore
+  username: root
+  password: password
+spawn:
+  world: world
+  x: 0
+  y: 64
+  z: 0
+  yaw: 0
+  pitch: 0
