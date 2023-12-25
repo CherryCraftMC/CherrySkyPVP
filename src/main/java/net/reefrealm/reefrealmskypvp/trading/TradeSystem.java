@@ -1,17 +1,26 @@
 package net.reefrealm.reefrealmskypvp.trading;
 
-public class TradeSystem {
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerInteractEntityEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 
-        /*TODO
-        - Add trade command
-        - Add trade accept command
-        - Add trade deny command
-        - Add trade cancel command
-        - Add trade list command
-        - Add trade remove command
-        - Add trade top command
-        - Add trade pay command
-        - Add trade give command
-        - Add trade take command
-        */
+public class TradeSystem implements Listener {
+
+    @EventHandler
+    public void ClickPlayerEvent(PlayerInteractEntityEvent event){
+        if (event.getRightClicked() instanceof Player) {
+            Player player = event.getPlayer();
+            Player target = (Player) event.getRightClicked();
+            if (player.getItemInHand().getType().equals(Material.EMERALD)) {
+                player.sendMessage("You have clicked on " + target.getName());
+                target.sendMessage(player.getName() + " has clicked on you");
+            }
+        }
+
+    }
+
+
 }
