@@ -1,5 +1,6 @@
 package net.reefrealm.reefrealmskypvp;
 
+import net.reefrealm.reefrealmskypvp.economy.command.CoinsCommand;
 import net.reefrealm.reefrealmskypvp.launcher.LaunchpadSystem;
 import net.reefrealm.reefrealmskypvp.manager.CommandManager;
 import net.reefrealm.reefrealmskypvp.placeholders.StatsPlaceholderExpansion;
@@ -15,6 +16,7 @@ public class Loader implements Listener {
     public static void registerCommands(ReefRealmSkyPVP plugin) {
         //registeredCommand(new LanguageCommand("language"), plugin);
         registeredCommand(new SetSpawnCommand("setspawn"), plugin);
+        registeredCommand(new CoinsCommand("coins"), plugin);
     }
 
 
