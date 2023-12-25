@@ -1,5 +1,6 @@
 package net.reefrealm.reefrealmskypvp;
 
+import net.reefrealm.reefrealmskypvp.bounty.commands.BountyCommand;
 import net.reefrealm.reefrealmskypvp.economy.command.CoinsCommand;
 import net.reefrealm.reefrealmskypvp.launcher.LaunchpadSystem;
 import net.reefrealm.reefrealmskypvp.manager.CommandManager;
@@ -17,6 +18,7 @@ public class Loader implements Listener {
         //registeredCommand(new LanguageCommand("language"), plugin);
         registeredCommand(new SetSpawnCommand("setspawn"), plugin);
         registeredCommand(new CoinsCommand("coins"), plugin);
+        registeredCommand(new BountyCommand("bounty"), plugin);
     }
 
 

@@ -7,3 +7,5 @@ commands:
     description: Sets the spawn point for the world
   coins:
     description: Shows your current coins
+  bounty:
+    description: Shows your current bounty
