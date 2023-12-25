@@ -53,11 +53,18 @@ public class MySQL {
                 "`coins` INT DEFAULT 0,\n"+
                 "  PRIMARY KEY (`id`));";
 
+        String query2 = "CREATE TABLE IF NOT EXISTS `ReefRealm_SkyPVP_Bountys` (\n" +
+                "  `id` INT NOT NULL AUTO_INCREMENT,\n" +
+                "  `uuid` VARCHAR(36) NOT NULL,\n" +
+                "  `bounty` INT DEFAULT 0,\n"+
+                "  PRIMARY KEY (`id`));";
+
         Statement stmt = null;
         try {
             stmt = connection.createStatement();
             // executing the queries
             stmt.executeUpdate(query1);
+            stmt.executeUpdate(query2);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -348,6 +355,70 @@ public class MySQL {
             overrideCoinsAmount(playerUUID, currentCoins - amount);
         } else {
             overrideCoinsAmount(playerUUID, 0);
+        }
+    }
+
+    public static int getBounty(String playerUUID) {
+        Connection connection = GetConnection();
+        String query = "SELECT bounty FROM ReefRealm_SkyPVP_Bountys WHERE uuid = ?";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, playerUUID);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                return resultSet.getInt("bounty");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public static void setBounty(String playerUUID, int amount) {
+        int currentBounty = getBounty(playerUUID);
+        Connection connection = GetConnection();
+        String query = "UPDATE ReefRealm_SkyPVP_Bountys SET bounty = ? WHERE uuid = ?";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, currentBounty + amount);
+            statement.setString(2, playerUUID);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public static boolean checkifBountyExist(String playerUUID){
+        Connection connection = GetConnection();
+        String query = "SELECT * FROM ReefRealm_SkyPVP_Bountys WHERE uuid = ?";
+        if (!userExists(playerUUID)) {
+            return true;
+        }
+        return false;
+    }
+
+    public static void createBounty(String playerUUID, int amount) {
+        Connection connection = GetConnection();
+        if (getBounty(playerUUID) == 0) {
+            String query = "INSERT INTO ReefRealm_SkyPVP_Bountys (uuid, bounty) VALUES (?, ?)";
+            try (PreparedStatement statement = connection.prepareStatement(query)) {
+                statement.setString(1, playerUUID);
+                statement.setInt(2, amount);
+                statement.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } else {
+            setBounty(playerUUID, amount);
+        }
+    }
+
+    public static void removeBountyfromExistance(String playerUUID) {
+        Connection connection = GetConnection();
+        String query = "DELETE FROM ReefRealm_SkyPVP_Bountys WHERE uuid = ?";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, playerUUID);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
