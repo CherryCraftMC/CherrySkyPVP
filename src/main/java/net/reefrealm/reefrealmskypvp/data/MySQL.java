@@ -50,6 +50,7 @@ public class MySQL {
                 "`killstreak` INT DEFAULT 0,\n"+
                 "`score` INT DEFAULT 0,\n"+
                 "`level` INT DEFAULT 0,\n"+
+                "`coins` INT DEFAULT 0,\n"+
                 "  PRIMARY KEY (`id`));";
 
         Statement stmt = null;
@@ -297,6 +298,56 @@ public class MySQL {
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    public static void addCoins(String playerUUID, int amount){
+        Connection connection = GetConnection();
+        String query = "UPDATE ReefRealm_SkyPVP_Stats SET coins = coins + ? WHERE uuid = ?";
+        try (PreparedStatement statement = connection.prepareStatement(query)){
+            statement.setInt(1, amount);
+            statement.setString(2, playerUUID);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void overrideCoinsAmount(String playerUUID, int amount){
+        Connection connection = GetConnection();
+        String query = "UPDATE ReefRealm_SkyPVP_Stats SET coins = ? WHERE uuid = ?";
+        try(PreparedStatement statement = connection.prepareStatement(query)){
+            statement.setInt(1, amount);
+            statement.setString(2, playerUUID);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+    public static int getCoins(String playerUUID) {
+        Connection connection = GetConnection();
+        String query = "SELECT coins FROM ReefRealm_SkyPVP_Stats WHERE uuid = ?";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, playerUUID);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                return resultSet.getInt("coins");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public static void removeCoins(String playerUUID, int amount) {
+        int currentCoins = getCoins(playerUUID);
+        if (currentCoins >= amount) {
+            overrideCoinsAmount(playerUUID, currentCoins - amount);
+        } else {
+            overrideCoinsAmount(playerUUID, 0);
         }
     }
 
