@@ -53,6 +53,8 @@ public class StatsPlaceholderExpansion extends PlaceholderExpansion {
                 return String.format("%.1f%%", percentage);
             case "killstreak":
                 return String.valueOf(MySQL.getKillStreak(player.getUniqueId().toString()));
+            case "coins":
+                return String.valueOf(MySQL.getCoins(player.getUniqueId().toString()));
             default:
                 return null;
         }
