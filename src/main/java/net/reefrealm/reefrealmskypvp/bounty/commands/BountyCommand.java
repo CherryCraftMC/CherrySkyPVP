@@ -67,6 +67,10 @@ public class BountyCommand extends CommandManager implements TabCompleter {
                             player.sendMessage("That player is not online.");
                             return;
                         }
+                        if (player.equals(target)) {
+                            player.sendMessage("You cannot set a bounty on yourself.");
+                            return;
+                        }
 
                         int value;
                         try {
@@ -81,12 +85,12 @@ public class BountyCommand extends CommandManager implements TabCompleter {
                         }
                         if (MySQL.checkifBountyExist(target.getUniqueId().toString())) {
                             MySQL.setBounty(target.getUniqueId().toString(), value);
-                            MySQL.removeCoins(player.getUniqueId().toString(), value);
+                            player.sendMessage("Set " + target.getName() + "'s bounty to " + value + ".");
+                        } else {
+                            MySQL.createBounty(target.getUniqueId().toString(), value);
                             player.sendMessage("Created " + target.getName() + "'s bounty to " + value + ".");
                         }
-                        MySQL.createBounty(target.getUniqueId().toString(), value);
                         MySQL.removeCoins(player.getUniqueId().toString(), value);
-                        player.sendMessage("Set " + target.getName() + "'s bounty to " + value + ".");
                     } else {
                         player.sendMessage("Invalid command. Use /bounty, /bounty add <player> <value>, /bounty remove <player>, or /bounty set <player> <value>.");
                     }
