@@ -68,6 +68,8 @@ public class SkyPVPStats implements Listener {
                 MySQL.incrementKills(killer.getUniqueId().toString());
                 MySQL.incrementKillStreak(killer.getUniqueId().toString());
                 MySQL.calculateKD(killer.getUniqueId().toString());
+                MySQL.addCoins(killer.getUniqueId().toString(), 50);
+                checkAndClaimBounty(player, killer);
                 Random random = new Random();
                 int randomInt = random.nextInt(150);
                 Component xpMessage = miniMessage.deserialize("<#6A6177>[<#2BCD7E>■<#6A6177>] <#6A6177>You received:<#0E98C1> "+ "<hover:show_text:'<#6A6177>Reward for killing <#C1260E>"+player.getName()+"'>"+randomInt+"xp<#6A6177>!");
@@ -84,5 +86,15 @@ public class SkyPVPStats implements Listener {
         MySQL.calculateKD(player.getUniqueId().toString());
         // Remove the player's UUID from the lastDamager map
         lastDamager.remove(player.getUniqueId());
+    }
+
+
+    private void checkAndClaimBounty(Player killedPlayer, Player killer) {
+        String killedPlayerUUID = killedPlayer.getUniqueId().toString();
+        int bounty = MySQL.getBounty(killedPlayerUUID);
+        if (bounty > 0) {
+            MySQL.addCoins(killer.getUniqueId().toString(), bounty);
+            MySQL.removeBountyfromExistance(killedPlayerUUID);
+        }
     }
 }
