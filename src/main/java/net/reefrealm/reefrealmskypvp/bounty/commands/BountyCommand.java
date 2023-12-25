@@ -107,17 +107,17 @@ public class BountyCommand extends CommandManager implements TabCompleter {
         if (args.length == 1) {
             // If the player has only typed "/bounty ", suggest the subcommands
             List<String> suggestions = new ArrayList<>();
-            if (sender.hasPermission("reefrealmskypvp.bounty.remove")) {
-                suggestions.add("remove");
-            }
             if (sender.hasPermission("reefrealmskypvp.bounty.set")) {
                 suggestions.add("set");
+            }
+            if (sender.hasPermission("reefrealmskypvp.bounty.remove")) {
+                suggestions.add("remove");
             }
             return suggestions;
         } else if (args.length == 2) {
             // If the player has typed "/bounty <subcommand> ", suggest online player names
-            if ((args[0].equalsIgnoreCase("remove") && sender.hasPermission("reefrealmskypvp.bounty.remove")) ||
-                    (args[0].equalsIgnoreCase("set") && sender.hasPermission("reefrealmskypvp.bounty.set"))) {
+            if ((args[0].equalsIgnoreCase("set") && sender.hasPermission("reefrealmskypvp.bounty.set") ) ||
+                    (args[0].equalsIgnoreCase("remove") && sender.hasPermission("reefrealmskypvp.bounty.remove"))) {
                 List<String> playerNames = new ArrayList<>();
                 for (Player player : Bukkit.getOnlinePlayers()) {
                     playerNames.add(player.getName());

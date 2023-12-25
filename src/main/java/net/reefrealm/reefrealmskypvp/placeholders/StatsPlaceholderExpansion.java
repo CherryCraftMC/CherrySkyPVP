@@ -44,6 +44,67 @@ public class StatsPlaceholderExpansion extends PlaceholderExpansion {
             case "score":
                 int score = MySQL.getScore(player.getUniqueId().toString());
                 return String.valueOf(score);
+            case "leaderboard_top_kills_kills_1":
+                return String.valueOf(MySQL.leaderBoardKillStats(1));
+            case "leaderboard_top_kills_kills_2":
+                return String.valueOf(MySQL.leaderBoardKillStats(2));
+            case "leaderboard_top_kills_kills_3":
+                return String.valueOf(MySQL.leaderBoardKillStats(3));
+            case "leaderboard_top_kills_kills_4":
+                return String.valueOf(MySQL.leaderBoardKillStats(4));
+            case "leaderboard_top_kills_kills_5":
+                return String.valueOf(MySQL.leaderBoardKillStats(5));
+            case "leaderboard_top_kills_kills_6":
+                return String.valueOf(MySQL.leaderBoardKillStats(6));
+            case "leaderboard_top_kills_kills_7":
+                return String.valueOf(MySQL.leaderBoardKillStats(7));
+            case "leaderboard_top_kills_kills_8":
+                return String.valueOf(MySQL.leaderBoardKillStats(8));
+            case "leaderboard_top_kills_kills_9":
+                return String.valueOf(MySQL.leaderBoardKillStats(9));
+            case "leaderboard_top_kills_kills_10":
+                return String.valueOf(MySQL.leaderBoardKillStats(10));
+            case "leaderboard_top_kills_kills_11":
+                return String.valueOf(MySQL.leaderBoardKillStats(11));
+            case "leaderboard_top_kills_kills_12":
+                return String.valueOf(MySQL.leaderBoardKillStats(12));
+            case "leaderboard_top_kills_kills_13":
+                return String.valueOf(MySQL.leaderBoardKillStats(13));
+            case "leaderboard_top_kills_kills_14":
+                return String.valueOf(MySQL.leaderBoardKillStats(14));
+            case "leaderboard_top_kills_kills_15":
+                return String.valueOf(MySQL.leaderBoardKillStats(15));
+
+            case "leaderboard_top_kills_player_1":
+                return String.valueOf(MySQL.leaderBoardPlayerKillStats(1));
+            case "leaderboard_top_kills_player_2":
+                return String.valueOf(MySQL.leaderBoardPlayerKillStats(2));
+            case "leaderboard_top_kills_player_3":
+                return String.valueOf(MySQL.leaderBoardPlayerKillStats(3));
+            case "leaderboard_top_kills_player_4":
+                return String.valueOf(MySQL.leaderBoardPlayerKillStats(4));
+            case "leaderboard_top_kills_player_5":
+                return String.valueOf(MySQL.leaderBoardPlayerKillStats(5));
+            case "leaderboard_top_kills_player_6":
+                return String.valueOf(MySQL.leaderBoardPlayerKillStats(6));
+            case "leaderboard_top_kills_player_7":
+                return String.valueOf(MySQL.leaderBoardPlayerKillStats(7));
+            case "leaderboard_top_kills_player_8":
+                return String.valueOf(MySQL.leaderBoardPlayerKillStats(8));
+            case "leaderboard_top_kills_player_9":
+                return String.valueOf(MySQL.leaderBoardPlayerKillStats(9));
+            case "leaderboard_top_kills_player_10":
+                return String.valueOf(MySQL.leaderBoardPlayerKillStats(10));
+            case "leaderboard_top_kills_player_11":
+                return String.valueOf(MySQL.leaderBoardPlayerKillStats(11));
+            case "leaderboard_top_kills_player_12":
+                return String.valueOf(MySQL.leaderBoardPlayerKillStats(12));
+            case "leaderboard_top_kills_player_13":
+                return String.valueOf(MySQL.leaderBoardPlayerKillStats(13));
+            case "leaderboard_top_kills_player_14":
+                return String.valueOf(MySQL.leaderBoardPlayerKillStats(14));
+            case "leaderboard_top_kills_player_15":
+                return String.valueOf(MySQL.leaderBoardPlayerKillStats(15));
             case "required_score":
                 int levelnum = MySQL.getLevel(player.getUniqueId().toString());
                 int requiredScore = LevelSystem.getExperienceForLevel(levelnum + 1);
