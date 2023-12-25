@@ -1,6 +1,9 @@
 package net.reefrealm.reefrealmskypvp.data;
 
+import org.bukkit.Bukkit;
+
 import java.sql.*;
+import java.util.UUID;
 
 public class MySQL {
 
@@ -420,6 +423,39 @@ public class MySQL {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public static int leaderBoardKillStats(int topnumber){
+        Connection connection = GetConnection();
+        String query = "SELECT * FROM ReefRealm_SkyPVP_Stats ORDER BY kills DESC LIMIT ?, 1";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, topnumber - 1);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                int kills = resultSet.getInt("kills");
+                return kills;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public static String leaderBoardPlayerKillStats(int topnumber){
+        Connection connection = GetConnection();
+        String query = "SELECT * FROM ReefRealm_SkyPVP_Stats ORDER BY kills DESC LIMIT ?, 1";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, topnumber - 1);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                String playerUUID = resultSet.getString("uuid");
+                String playerName = Bukkit.getOfflinePlayer(UUID.fromString(playerUUID)).getName();
+                return playerName;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }
