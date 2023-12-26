@@ -1,16 +1,15 @@
-package net.reefrealm.reefrealmskypvp.stats;
+package net.cherrycraft.cherryskypvp.stats;
 
+import net.cherrycraft.cherryskypvp.data.MySQL;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
-import net.reefrealm.reefrealmskypvp.data.MySQL;
-import net.reefrealm.reefrealmskypvp.level.LevelSystem;
+import net.cherrycraft.cherryskypvp.level.LevelSystem;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 
 import java.util.HashMap;

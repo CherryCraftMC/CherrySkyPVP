@@ -1,4 +1,4 @@
-package net.reefrealm.reefrealmskypvp.data;
+package net.cherrycraft.cherryskypvp.data;
 
 import org.bukkit.Bukkit;
 

@@ -1,4 +1,4 @@
-package net.reefrealm.reefrealmskypvp.store;
+package net.cherrycraft.cherryskypvp.store;
 
 public class Store {
     /*TODO

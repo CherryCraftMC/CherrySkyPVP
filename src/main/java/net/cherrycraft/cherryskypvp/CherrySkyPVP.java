@@ -1,19 +1,19 @@
-package net.reefrealm.reefrealmskypvp;
+package net.cherrycraft.cherryskypvp;
 
-import net.reefrealm.reefrealmskypvp.data.MySQL;
+import net.cherrycraft.cherryskypvp.data.MySQL;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.logging.Logger;
 
-public final class ReefRealmSkyPVP extends JavaPlugin {
+public final class CherrySkyPVP extends JavaPlugin {
 
-    static ReefRealmSkyPVP instance;
+    static CherrySkyPVP instance;
 
     private final YamlConfiguration conf = new YamlConfiguration();
     Logger logger = Logger.getLogger("ReefCore");
 
-    public static ReefRealmSkyPVP getInstance() {
+    public static CherrySkyPVP getInstance() {
         return instance;
     }
 

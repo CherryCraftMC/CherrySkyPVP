@@ -1,6 +1,6 @@
-package net.reefrealm.reefrealmskypvp.spawn;
+package net.cherrycraft.cherryskypvp.spawn;
 
-import net.reefrealm.reefrealmskypvp.ReefRealmSkyPVP;
+import net.cherrycraft.cherryskypvp.CherrySkyPVP;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -23,12 +23,12 @@ public class AlwaysSpawn implements Listener {
     }
 
     private void teleportToSpawn(Player player) {
-        String worldName = ReefRealmSkyPVP.getInstance().getConfig().getString("spawn.world");
-        double x = ReefRealmSkyPVP.getInstance().getConfig().getDouble("spawn.x");
-        double y = ReefRealmSkyPVP.getInstance().getConfig().getDouble("spawn.y");
-        double z = ReefRealmSkyPVP.getInstance().getConfig().getDouble("spawn.z");
-        float yaw = (float) ReefRealmSkyPVP.getInstance().getConfig().getDouble("spawn.yaw");
-        float pitch = (float) ReefRealmSkyPVP.getInstance().getConfig().getDouble("spawn.pitch");
+        String worldName = CherrySkyPVP.getInstance().getConfig().getString("spawn.world");
+        double x = CherrySkyPVP.getInstance().getConfig().getDouble("spawn.x");
+        double y = CherrySkyPVP.getInstance().getConfig().getDouble("spawn.y");
+        double z = CherrySkyPVP.getInstance().getConfig().getDouble("spawn.z");
+        float yaw = (float) CherrySkyPVP.getInstance().getConfig().getDouble("spawn.yaw");
+        float pitch = (float) CherrySkyPVP.getInstance().getConfig().getDouble("spawn.pitch");
 
         World world = Bukkit.getWorld(worldName);
         if (world != null) {

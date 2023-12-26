@@ -1,8 +1,8 @@
-package net.reefrealm.reefrealmskypvp.economy.command;
+package net.cherrycraft.cherryskypvp.economy.command;
 
-import net.reefrealm.reefrealmskypvp.data.MySQL;
-import net.reefrealm.reefrealmskypvp.economy.CoinsSystem;
-import net.reefrealm.reefrealmskypvp.manager.CommandManager;
+import net.cherrycraft.cherryskypvp.data.MySQL;
+import net.cherrycraft.cherryskypvp.economy.CoinsSystem;
+import net.cherrycraft.cherryskypvp.manager.CommandManager;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -12,7 +12,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class CoinsCommand extends CommandManager implements TabCompleter {

@@ -1,20 +1,20 @@
-package net.reefrealm.reefrealmskypvp;
+package net.cherrycraft.cherryskypvp;
 
-import net.reefrealm.reefrealmskypvp.bounty.commands.BountyCommand;
-import net.reefrealm.reefrealmskypvp.economy.command.CoinsCommand;
-import net.reefrealm.reefrealmskypvp.launcher.LaunchpadSystem;
-import net.reefrealm.reefrealmskypvp.manager.CommandManager;
-import net.reefrealm.reefrealmskypvp.placeholders.StatsPlaceholderExpansion;
-import net.reefrealm.reefrealmskypvp.spawn.AlwaysSpawn;
-import net.reefrealm.reefrealmskypvp.spawn.SetSpawnCommand;
-import net.reefrealm.reefrealmskypvp.stats.SkyPVPStats;
+import net.cherrycraft.cherryskypvp.bounty.commands.BountyCommand;
+import net.cherrycraft.cherryskypvp.launcher.LaunchpadSystem;
+import net.cherrycraft.cherryskypvp.manager.CommandManager;
+import net.cherrycraft.cherryskypvp.economy.command.CoinsCommand;
+import net.cherrycraft.cherryskypvp.placeholders.StatsPlaceholderExpansion;
+import net.cherrycraft.cherryskypvp.spawn.AlwaysSpawn;
+import net.cherrycraft.cherryskypvp.spawn.SetSpawnCommand;
+import net.cherrycraft.cherryskypvp.stats.SkyPVPStats;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 
 public class Loader implements Listener {
 
 
-    public static void registerCommands(ReefRealmSkyPVP plugin) {
+    public static void registerCommands(CherrySkyPVP plugin) {
         //registeredCommand(new LanguageCommand("language"), plugin);
         registeredCommand(new SetSpawnCommand("setspawn"), plugin);
         registeredCommand(new CoinsCommand("coins"), plugin);
@@ -22,12 +22,12 @@ public class Loader implements Listener {
     }
 
 
-    private static void registeredCommand(CommandManager command, ReefRealmSkyPVP plugin) {
+    private static void registeredCommand(CommandManager command, CherrySkyPVP plugin) {
         command.register(plugin);
         plugin.getLogger().info("Command '" + command.getCommandName() + "' has been registered.");
     }
 
-    public static void registerListeners(ReefRealmSkyPVP plugin) {
+    public static void registerListeners(CherrySkyPVP plugin) {
         // Register listeners here
         //Bukkit.getPluginManager().registerEvents(new ExampleListener(), plugin);
         Bukkit.getPluginManager().registerEvents(new SkyPVPStats(),plugin);
