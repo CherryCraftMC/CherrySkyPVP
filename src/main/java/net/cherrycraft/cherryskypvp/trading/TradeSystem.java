@@ -1,4 +1,4 @@
-package net.reefrealm.reefrealmskypvp.trading;
+package net.cherrycraft.cherryskypvp.trading;
 
 import org.bukkit.Material;
 import org.bukkit.entity.Player;

@@ -1,4 +1,4 @@
-package net.reefrealm.reefrealmskypvp.launcher;
+package net.cherrycraft.cherryskypvp.launcher;
 
 import org.bukkit.Material;
 import org.bukkit.Sound;

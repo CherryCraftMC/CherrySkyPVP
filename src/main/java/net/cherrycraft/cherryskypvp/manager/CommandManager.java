@@ -1,4 +1,4 @@
-package net.reefrealm.reefrealmskypvp.manager;
+package net.cherrycraft.cherryskypvp.manager;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

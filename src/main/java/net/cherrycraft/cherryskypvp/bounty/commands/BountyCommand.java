@@ -1,7 +1,7 @@
-package net.reefrealm.reefrealmskypvp.bounty.commands;
+package net.cherrycraft.cherryskypvp.bounty.commands;
 
-import net.reefrealm.reefrealmskypvp.data.MySQL;
-import net.reefrealm.reefrealmskypvp.manager.CommandManager;
+import net.cherrycraft.cherryskypvp.data.MySQL;
+import net.cherrycraft.cherryskypvp.manager.CommandManager;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;

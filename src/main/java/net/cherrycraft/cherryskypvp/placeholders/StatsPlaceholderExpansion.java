@@ -1,8 +1,8 @@
-package net.reefrealm.reefrealmskypvp.placeholders;
+package net.cherrycraft.cherryskypvp.placeholders;
 
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
-import net.reefrealm.reefrealmskypvp.data.MySQL;
-import net.reefrealm.reefrealmskypvp.level.LevelSystem;
+import net.cherrycraft.cherryskypvp.data.MySQL;
+import net.cherrycraft.cherryskypvp.level.LevelSystem;
 import org.bukkit.entity.Player;
 
 public class StatsPlaceholderExpansion extends PlaceholderExpansion {

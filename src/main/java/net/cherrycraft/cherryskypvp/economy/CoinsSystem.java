@@ -1,10 +1,7 @@
-package net.reefrealm.reefrealmskypvp.economy;
+package net.cherrycraft.cherryskypvp.economy;
 
-import net.reefrealm.reefrealmskypvp.data.MySQL;
+import net.cherrycraft.cherryskypvp.data.MySQL;
 import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
-
-import java.util.UUID;
 
 public class CoinsSystem{
 

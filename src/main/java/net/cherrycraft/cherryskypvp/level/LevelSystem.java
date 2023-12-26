@@ -1,6 +1,6 @@
-package net.reefrealm.reefrealmskypvp.level;
+package net.cherrycraft.cherryskypvp.level;
 
-import net.reefrealm.reefrealmskypvp.data.MySQL;
+import net.cherrycraft.cherryskypvp.data.MySQL;
 import org.bukkit.entity.Player;
 
 public class LevelSystem {
