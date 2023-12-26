@@ -3,6 +3,8 @@ package net.cherrycraft.cherryskypvp.placeholders;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import net.cherrycraft.cherryskypvp.data.MySQL;
 import net.cherrycraft.cherryskypvp.level.LevelSystem;
+import net.kyori.adventure.text.minimessage.MiniMessage;
+import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 import org.bukkit.entity.Player;
 
 public class StatsPlaceholderExpansion extends PlaceholderExpansion {
@@ -121,10 +123,13 @@ public class StatsPlaceholderExpansion extends PlaceholderExpansion {
         }
     }
 
+    MiniMessage miniMessage = MiniMessage.builder().build();
+    LegacyComponentSerializer serializer = LegacyComponentSerializer.legacySection();
+
     private String createProgressBar(float percentage) {
         int totalBars = 10;
         int filledBars = (int) (totalBars * percentage / 100.0f);
-        return "§b" + repeat("■", filledBars) + "§7" + repeat("■", totalBars - filledBars);
+        return serializer.serialize(miniMessage.deserialize("<aqua>")) + repeat("■", filledBars) + serializer.serialize(miniMessage.deserialize("<gray>")) + repeat("■", totalBars - filledBars);
     }
 
     private String repeat(String str, int times) {
