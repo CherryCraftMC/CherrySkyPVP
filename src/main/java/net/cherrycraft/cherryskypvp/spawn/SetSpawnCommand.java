@@ -1,7 +1,7 @@
 package net.cherrycraft.cherryskypvp.spawn;
 
-import net.cherrycraft.cherryskypvp.CherrySkyPVP;
 import net.cherrycraft.cherryskypvp.manager.CommandManager;
+import net.cherrycraft.cherryskypvp.CherrySkyPVP;
 import org.bukkit.Location;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;

@@ -9,3 +9,5 @@ commands:
     description: Shows your current coins
   bounty:
     description: Shows your current bounty
+  kit:
+    description: Shows your current kit

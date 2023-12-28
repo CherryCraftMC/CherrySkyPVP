@@ -11,7 +11,7 @@ public final class CherrySkyPVP extends JavaPlugin {
     static CherrySkyPVP instance;
 
     private final YamlConfiguration conf = new YamlConfiguration();
-    Logger logger = Logger.getLogger("ReefCore");
+    Logger logger = Logger.getLogger("CherrySkyPVP");
 
     public static CherrySkyPVP getInstance() {
         return instance;

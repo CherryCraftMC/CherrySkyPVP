@@ -124,7 +124,7 @@ public class StatsPlaceholderExpansion extends PlaceholderExpansion {
     private String createProgressBar(float percentage) {
         int totalBars = 10;
         int filledBars = (int) (totalBars * percentage / 100.0f);
-        return "§b" + repeat("■", filledBars) + "§7" + repeat("■", totalBars - filledBars);
+        return "<#2085fb>" + repeat("■", filledBars) + "<gray>" + repeat("■", totalBars - filledBars);
     }
 
     private String repeat(String str, int times) {
